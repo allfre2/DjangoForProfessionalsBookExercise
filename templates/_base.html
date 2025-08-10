@@ -24,6 +24,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'book_list' %}">Books</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'search_results' %}">Search</a>
+                    </li>
                     {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'account_logout' %}">Log Out</a>
@@ -37,6 +40,10 @@
                         </li>
                     {% endif %}
                     </ul>
+                    <form class="d-flex" action="{% url 'search_results' %}" method="get">
+                        <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search" >
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
                 </div>
             </div>
         </nav>
